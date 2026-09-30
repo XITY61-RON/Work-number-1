@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
+import SeminarThree.Doublee;
+import SeminarThree.EnterMassive;
 import SeminarThree.JavaMathExample1;
+import SeminarThree.MaxAndMin;
 import SeminarThree.PointCircleTester;
+import SeminarThree.StrFormTask;
 import SeminarTwo.WorkNumberTwo;
 import SeminarTwo.Ball;
 import SeminarTwo.BookTest;
@@ -96,11 +100,7 @@ public class Seminar {
                 DogKennel.dog(scan);
                 break;
             case "13":
-                // SeminarTwo.Circle n = new SeminarTwo.Circle();
-                // SeminarTwo.Circle.main(new String[0]);
-                // System.out.println("Нажмите Enter для возврата в меню");
-                // scan.nextLine();
-     
+                System.out.println("Зайти в файл: SeminarTwo.Circle");
               break;
             case "14":
                 BookTest.books(scan);
@@ -135,10 +135,20 @@ public class Seminar {
                 scan.nextLine();
                 break;
             case "20":
+                MaxAndMin.maxAndMin(scan);
+                scan.nextLine();
                 break;
             case "21":
+                EnterMassive.enterMassive(scan);
+                scan.nextLine();
                 break;
             case "22":
+                Doublee.doublee(scan);
+                scan.nextLine();
+                break;
+            case "23":
+                StrFormTask.strFormTask(scan);
+                scan.nextLine();
                 break;
             case "60":
                 System.out.println("Выход");

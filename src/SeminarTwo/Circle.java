@@ -34,7 +34,7 @@ public class Circle {
     public static void main(String[] args) {
         Circle c1 = new Circle(5, "Red");
         Circle c2 = new Circle(5, "Blue");
-        Circle c3 = new Circle(3, "Green");
+        Circle c3 = new Circle(8, "Green");
 
         System.out.println("Площадь c1: " + c1.getArea());
         System.out.println("Длина c1: " + c1.getLength());

@@ -8,7 +8,8 @@ public  void addComputer(Computer c){
     computers.add(c);
 }
 public void removeComputer(String name){
-    computers.removeIf(c -> c.getName().equalsIgnoreCase(name));
+    computers.removeIf(c -> c.getName().equalsIgnoreCase(name));  //-> - лямбда выражение  
+    // %s - знак управ тип вывод знач, %f - float, %s - string, %i - integer, %d - decimd
 }
 public Computer findComputer(String name){
     for(Computer c : computers){
