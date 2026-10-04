@@ -22,32 +22,33 @@ public class Seminar {
             System.out.println("Блок 1");
             System.out.println("=======================");
             System.out.println("Практика 1");
-            System.out.println("3 Задание");
-            System.out.println("4 Задание");
-            System.out.println("5 Задание");
-            System.out.println("6 Задание");
-            System.out.println("7 Задание");
+            System.out.println("3 Задание SumAndAverageFor.java");
+            System.out.println("4 Задание DoWhileWhile.java");
+            System.out.println("5 Задание Seminar.java");
+            System.out.println("6 Задание HarmonicSeries.java");
+            System.out.println("7 Задание Factorial.java");
             System.out.println("=======================");
             System.out.println("Практика 2");
-            System.out.println("8 Задание" );
-            System.out.println("9 Задание" );
-            System.out.println("10 Задание" );
-            System.out.println("11 Задание" );
-            System.out.println("12 Задание" );
-            System.out.println("13 Задание" );
-            System.out.println("14 Задание" );
-            System.out.println("15 Задание" );
-            System.out.println("16 Задание" );
-            System.out.println("17 Задание" );
+            System.out.println("8 Задание  TestAutor Autor WorkNumberTwo" );
+            System.out.println("9 Задание  Ball testBall" );
+            System.out.println("10 Задание tester.java" );
+            System.out.println("11 Задание Shop.java" );
+            System.out.println("12 Задание Dogkennel.java" );
+            System.out.println("13 Задание Circle.java" );
+            System.out.println("14 Задание BookTest" );
+            System.out.println("15 Задание Seminar.java" );
+            System.out.println("16 Задание Poker.java" );
+            System.out.println("17 Задание HowMany.java" );
             System.out.println("=======================");
             System.out.println("Практика 3");
-            System.out.println("18 Задание" );
-            System.out.println("19 Задание" );
-            System.out.println("20 Задание" );
-            System.out.println("21 Задание" );
-            System.out.println("22 Задание" );
-            System.out.println("23 Задание" );
-            System.out.println("60 Выход");
+            System.out.println("18 Задание  Сортировка массива " );
+            System.out.println("19 Задание  Три класса Point, Circle, Tester" );
+            System.out.println("20 Задание  Массив возрастающий убывающий " );
+            System.out.println("21 Задание  Введение масива " );
+            System.out.println("22 Задание  Задание Doubl" );
+            System.out.println("23 Задание  Конвертер валют" );
+            System.out.println("25 Выход");
+            System.out.println("Все задания идут строго по списку");
 
 
 
@@ -60,8 +61,7 @@ public class Seminar {
                 break;
             case "4":
                 System.out.println("Ответ: ");
-                DoWhileWhile task4 = new DoWhileWhile();
-                task4.DoWhiLeWhile(scan);
+                DoWhileWhile.DoWhiLeWhile(scan);
                 break;
             case "5":
                 System.out.println("Ответ аргумента комендной строки: ");
@@ -75,17 +75,15 @@ public class Seminar {
                 break;
             case "6":
                 System.out.println("Ответ: ");
-                HarmonicSeries task6 = new HarmonicSeries();
-                task6.HarmOnicSeries(scan);
+                HarmonicSeries.HarmOnicSeries(scan);
                 break;
             case "7":
                 System.out.println("Ответ: ");
-                Factorial task7 = new Factorial();
-                task7.factorial(scan);
+                Factorial.factorial(scan);
                 break; 
             case "8":
                 WorkNumberTwo task8 = new WorkNumberTwo();
-                task8.taskAuthor();
+                task8.testAuthor();
                 break;
             case "9":
                 Ball.test(scan);
@@ -150,7 +148,11 @@ public class Seminar {
                 StrFormTask.strFormTask(scan);
                 scan.nextLine();
                 break;
-            case "60":
+            case "24":
+                System.out.println("Все другие задания находятся в SeminarFour");
+                scan.close();
+                break;       
+            case "25":
                 System.out.println("Выход");
                 scan.close();
                 break;        

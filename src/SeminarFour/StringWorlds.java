@@ -31,7 +31,7 @@ public class StringWorlds {
         System.out.print("Введите строку: ");
         String s = strings.nextLine();
         StringOperations ops = new StringImpl();
-        System.out.println("\n=== Результат ===");
+        System.out.println("Результат");
         System.out.println("Длина строки:            " + ops.countChars(s));
         System.out.println("Символы на нечётных поз: " + ops.oddPositions(s));
         System.out.println("Инвертированная строка:  " + ops.reverse(s));

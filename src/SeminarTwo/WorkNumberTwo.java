@@ -1,6 +1,6 @@
 package SeminarTwo;   
     public class WorkNumberTwo {
-    public void taskAuthor() {
+    public void testAuthor() {
         Author author = new Author("Иван Петров", "ivan.gtn10@com.ru", 'm');
         System.out.println(author);
         author.setEmail("new_ivan.gtn10@com.ru");

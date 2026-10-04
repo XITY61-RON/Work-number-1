@@ -48,7 +48,6 @@ public class Tester {
             System.out.println(circles[i]);
         }
     }
-
     public static void tester(Scanner scanner) {
         Tester tester = new Tester(3);
         tester.addCircle(new Circle(new Point(0, 0), 5));
