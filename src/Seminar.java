@@ -47,6 +47,7 @@ public class Seminar {
             System.out.println("21 Задание  Введение масива " );
             System.out.println("22 Задание  Задание Doubl" );
             System.out.println("23 Задание  Конвертер валют" );
+            System.out.println("24 - Задания 4,6,7 практик находятся в файле SeminarFour");
             System.out.println("25 Выход");
             System.out.println("Все задания идут строго по списку");
 
