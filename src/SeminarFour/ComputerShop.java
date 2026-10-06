@@ -7,7 +7,8 @@ enum Brand {
 }
 class Processor {
     private String model;
-    private double frequency; 
+    private double frequency;
+
     public Processor(String model, double frequency) {
         this.model = model;
         this.frequency = frequency;
@@ -18,9 +19,8 @@ class Processor {
     }
 }
 class Memory {
-    private int size;     
-    private String type; 
-
+    private int size;
+    private String type;
     public Memory(int size, String type) {
         this.size = size;
         this.type = type;
@@ -31,14 +31,12 @@ class Memory {
     }
 }
 class Monitor {
-    private double diagonal; 
+    private double diagonal;
     private String resolution;
-
     public Monitor(double diagonal, String resolution) {
         this.diagonal = diagonal;
         this.resolution = resolution;
     }
-
     @Override
     public String toString() {
         return diagonal + "\" " + resolution;
@@ -58,15 +56,9 @@ class Computer {
         this.monitor = monitor;
         this.price = price;
     }
-    public Brand getBrand() {
-        return brand;
-    }
-    public String getName() {
-        return brand.name();
-    }
-    public double getPrice() {
-        return price;
-    }
+    public Brand getBrand() { return brand; }
+    public String getName() { return brand.name(); }
+    public double getPrice() { return price; }
     @Override
     public String toString() {
         return brand + " | CPU: " + processor
@@ -75,9 +67,11 @@ class Computer {
                 + " | " + price + " руб.";
     }
 }
-class Shop {
+interface Inputable {
+    Computer inputComputer(Scanner scanner);
+}
+class ComputerShop implements Inputable {
     private ArrayList<Computer> computers = new ArrayList<>();
-
     public void addComputer(Computer c) {
         computers.add(c);
     }
@@ -99,10 +93,43 @@ class Shop {
             System.out.println(c);
         }
     }
+    @Override
+    public Computer inputComputer(Scanner scanner) {
+        System.out.print("Марка (" + java.util.Arrays.toString(Brand.values()) + "): ");
+        String brandStr = scanner.nextLine().trim().toUpperCase();
+        Brand brand;
+        try {
+            brand = Brand.valueOf(brandStr);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Нет такой марки!");
+            return null;
+        }
+        System.out.print("Модель процессора: ");
+        String cpuModel = scanner.nextLine().trim();
+        System.out.print("Частота процессора (ГГц): ");
+        double freq = Double.parseDouble(scanner.nextLine().trim());
+        System.out.print("Объём памяти (ГБ): ");
+        int ramSize = Integer.parseInt(scanner.nextLine().trim());
+        System.out.print("Тип памяти (DDR4/DDR5): ");
+        String ramType = scanner.nextLine().trim();
+        System.out.print("Диагональ монитора (дюймы): ");
+        double diag = Double.parseDouble(scanner.nextLine().trim());
+        System.out.print("Разрешение монитора: ");
+        String res = scanner.nextLine().trim();
+        System.out.print("Цена (руб.): ");
+        double price = Double.parseDouble(scanner.nextLine().trim());
+        return new Computer(
+                brand,
+                new Processor(cpuModel, freq),
+                new Memory(ramSize, ramType),
+                new Monitor(diag, res),
+                price
+        );
+    }
     public static void shop(Scanner scanner) {
-        Shop shop = new Shop();
+        ComputerShop shop = new ComputerShop();
         while (true) {
-            System.out.println("\n=== Интернет-магазин компьютерной техники ===");
+            System.out.println("\nИнтернет-магазин компьютерной техники");
             System.out.println("1. Добавить компьютер");
             System.out.println("2. Найти компьютер по марке");
             System.out.println("3. Удалить компьютер по марке");
@@ -112,7 +139,11 @@ class Shop {
             String choice = scanner.nextLine().trim();
             switch (choice) {
                 case "1":
-                    addFromKeyboard(scanner, shop);
+                    Computer c = shop.inputComputer(scanner);
+                    if (c != null) {
+                        shop.addComputer(c);
+                        System.out.println("Компьютер добавлен!");
+                    }
                     break;
                 case "2":
                     System.out.print("Введите марку для поиска: ");
@@ -140,47 +171,9 @@ class Shop {
             }
         }
     }
-
-    private static void addFromKeyboard(Scanner scanner, Shop shop) {
-        System.out.print("Марка (" + java.util.Arrays.toString(Brand.values()) + "): ");
-        String brandStr = scanner.nextLine().trim().toUpperCase();
-        Brand brand;
-        try {
-            brand = Brand.valueOf(brandStr);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Нет такой марки!");
-            return;
-        }
-        System.out.print("Модель процессора: ");
-        String cpuModel = scanner.nextLine().trim();
-        System.out.print("Частота процессора (ГГц): ");
-        double freq = Double.parseDouble(scanner.nextLine().trim());
-        System.out.print("Объём памяти (ГБ): ");
-        int ramSize = Integer.parseInt(scanner.nextLine().trim());
-        System.out.print("Тип памяти (DDR4/DDR5): ");
-        String ramType = scanner.nextLine().trim();
-        System.out.print("Диагональ монитора (дюймы): ");
-        double diag = Double.parseDouble(scanner.nextLine().trim());
-        System.out.print("Разрешение монитора: ");
-        String res = scanner.nextLine().trim();
-        System.out.print("Цена (руб.): ");
-        double price = Double.parseDouble(scanner.nextLine().trim());
-        Computer c = new Computer(
-                brand,
-                new Processor(cpuModel, freq),
-                new Memory(ramSize, ramType),
-                new Monitor(diag, res),
-                price
-        );
-        shop.addComputer(c);
-        System.out.println("Компьютер добавлен!");
-    }
-    
-}
-public class ComputerShop {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Shop.shop(scanner);
+        ComputerShop.shop(scanner);
         scanner.close();
     }
 }

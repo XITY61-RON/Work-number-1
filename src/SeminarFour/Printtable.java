@@ -46,7 +46,7 @@ public class Printtable {
             new Magazine("National Geographic"),
             new Magazine("Vogue")
         };
-        System.out.println("=== Только журналы ===");
+        System.out.println("Только журналы");
         Magazine.printMagazines(items);
     }
 }
